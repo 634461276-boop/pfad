@@ -15,5 +15,7 @@ app = FastAPI(title="Week 4 · test first")
 
 # TODO: implement GET /tides with a required integer month query parameter.
 # Return that month's records from load_rows().
-
+@app.get("/tides")
+def tides(month: int):
+    return select_month(load_rows(), month)
 Default = asgi.entrypoint(app)
